@@ -1,6 +1,6 @@
 trigger OpptyHandler on Opportunity (after update) {
+    List<Opportunity> lst = new List<Opportunity>();
     for(Opportunity o : TRIGGER.NEW){
-        List<Opportunity> lst = new List<Opportunity>();
         if(o.StageName == 'Closed Won'){
             Opportunity newOppty = new Opportunity();
             newOppty.AccountId = o.AccountId;
