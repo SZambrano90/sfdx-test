@@ -1,4 +1,4 @@
-trigger OpptyHandler on SOBJECT (before insert) {
+trigger OpptyHandler on Opportunity (after update) {
     for(Opportunity o : TRIGGER.NEW){
         List<Opportunity> lst = new List<Opportunity>();
         if(o.StageName == 'Closed Won'){
