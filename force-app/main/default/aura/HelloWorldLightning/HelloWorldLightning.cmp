@@ -1,0 +1,51 @@
+<aura:component controller="HelloWorldController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="nomeUtente" type="String" default=""/>
+    <aura:attribute name="inserisciNome" type="String" default=""/>
+    <aura:attribute name="inserisciName" type="String" default=""/>
+    <aura:attribute name="inserisciSurname" type="String" default=""/>
+    <aura:attribute name="inserisciPagina" type="String" default=""/>
+    <aura:attribute name="pagina" type="Integer" default=""/>
+    <aura:attribute name="numberOfContacts" type="Integer" default=""/>
+    <aura:attribute name="nameInserting" type="String" default=""/>
+    <aura:attribute name="surnameInserting" type="String" default=""/>
+    
+    <!-- Attribute utile per salvare la lista di contatti proveniente dal DB -->
+    <aura:attribute name="listaContatti" type="Contact[]" default="[]" />
+   
+    <!-- tag che fa partire una azione al caricamento della pagina -->
+    <aura:handler name="init" action="{!c.doInit}" value="{!this}"/>
+    
+    <lightning:card title="HelloWorld">
+        <!-- <p>
+            Ciao, {!v.nomeUtente}. Benvenuto sulla pagina HelloWorld.
+        </p>
+        <lightning:input name="inputNome" label="Inserisci qui il tuo nome" value="{!v.inserisciNome}"/> <br/>
+        <lightning:button variant="brand" label="Cambia il nome" onclick="{! c.cambiaNome1 }" /> -->
+        
+        
+        <p>
+        	Numero di contatti: {!v.numberOfContacts}
+        </p>
+        
+        <lightning:input name="inputName" label="Inserisci nome" value="{!v.inserisciName}"/> <br/>
+        <lightning:input name="inputSurname" label="Inserisci cognome" value="{!v.inserisciSurname}"/> <br/>
+        <lightning:button variant="brand" label="Salva contatto" onclick="{!c.insertContact }" />
+        
+        <lightning:input name="inputPagina" label="Inserisci pagina" value="{!v.inserisciPagina}"/> <br/>
+        <lightning:button variant="brand" label="Cambia pagina" onclick="{!c.cambioPagina }" />
+        <div>
+        	<table>
+            	<tr>
+                	<td>Nome</td>
+                    <td>Telefono</td>
+                </tr>
+                <aura:iteration items="{!v.listaContatti}" var="contatto">
+                	<tr>
+                    	<td>{!contatto.Name}</td>
+                        <td>{!contatto.Phone}</td>
+                    </tr>
+                </aura:iteration>
+            </table>
+        </div>
+    </lightning:card>
+</aura:component>

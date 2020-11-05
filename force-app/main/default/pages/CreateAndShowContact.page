@@ -1,0 +1,25 @@
+<apex:page standardController="Contact">
+    <!-- I commenti sono uguali all'HTML. -->
+    <div style="text-align:center">
+        <apex:image url="{!$Resource.logo}"/>
+        <h1 style="font-size: 50pt">
+        	Create Contacts
+    	</h1>
+    </div>
+    <apex:form >
+    	<apex:pageBlock >
+            <apex:pageBlockButtons >
+            	<apex:commandButton action="{!quicksave}" value="Save"/>
+            </apex:pageBlockButtons>
+        	<apex:pageBlockSection title="Creating Contact">
+                <apex:inputField value="{!contact.FirstName}"/>
+                <apex:inputField value="{!contact.LastName}"/>
+                <apex:inputField value="{!contact.Email}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockSection title="Contact Summary">
+                Name: {!Contact.Name}<br/>
+                Email: {!Contact.Email}
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

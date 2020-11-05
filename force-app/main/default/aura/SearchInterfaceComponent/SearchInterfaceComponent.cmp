@@ -1,0 +1,12 @@
+<aura:component controller="ToMulesoftGET" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="AccountName" type="String" />
+    <aura:attribute name="Results" type="List" />
+
+    <lightning:input type="text" name="input" label="Enter an account name" value="{! v.AccountName}"/>
+
+    <lightning:button label="Search Account" title="Search Account" onclick="{! c.handleClick }"/>
+
+    <aura:iteration items="{! v.Results}" var="result">
+        <p>{! result}</p>
+    </aura:iteration>
+</aura:component>

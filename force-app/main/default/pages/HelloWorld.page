@@ -1,0 +1,21 @@
+<apex:page >
+    <h1>
+        Hello World!
+    </h1>
+    <apex:pageBlock >
+    	<apex:pageBlockSection >
+            This is a block section.
+        </apex:pageBlockSection>
+    	<apex:pageBlockSection >
+            This is another block section.
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+    <apex:pageBlock >
+    	This is another block entirely.
+    	<apex:pageBlockSection title="About the User">
+            Nome: {!$User.FirstName}<br/>
+            Cognome: {!$User.LastName}<br/>
+            Username: {!$User.Username}<br/>
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>
