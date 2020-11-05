@@ -1,7 +1,7 @@
 trigger OpptyHandler on SOBJECT (before insert) {
     for(Opportunity o : TRIGGER.NEW){
         List<Opportunity> lst = new List<Opportunity>();
-        if(o.StageName = 'Closed Won'){
+        if(o.StageName == 'Closed Won'){
             Opportunity newOppty = new Opportunity();
             newOppty.AccountId = o.AccountId;
             newOppty.Amount = o.Amount;
